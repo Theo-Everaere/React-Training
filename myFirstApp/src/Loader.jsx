@@ -17,7 +17,7 @@ class Loader extends Component {
         return (
             <div>
                 {loader ? "" : <button onClick={this.handleClick}>Affichez le loader</button>}
-                {loader ? <ReactLoading className='loader' type="bubbles" color="orange"/> : " "}
+                {loader ? <ReactLoading type="bubbles" color="orange"/> : " "}
             </div>
 
         )

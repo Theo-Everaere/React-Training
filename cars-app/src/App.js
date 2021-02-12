@@ -1,18 +1,18 @@
-import React, {Component} from 'react'
-import './App.css';
-import Mycars from './components/Mycars'
+import React, { Component } from "react";
+import "./App.css";
+import Mycars from "./components/Mycars";
 
 class App extends Component {
-
   state = {
-    titre: 'Le catalogue'
-  }
+    titre: "Le catalogue",
+  };
 
-  render(){
+  render() {
     return (
       <div className="App">
-        <Mycars title={this.state.titre}/>
-       </div>
+        <Mycars title={this.state.titre} />
+
+      </div>
     );
   }
 }
