@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #7f8c8d;
 }
 
 code {
@@ -12,21 +13,3 @@ code {
     monospace;
 }
 
-.carsTable {
-  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
-}
-.carsTable td, .carsTable th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  width: 33%;
-  text-align: center;
-}
-
-.carsTable tr:hover {background-color: #ddd;}
-
-.carsTable th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  background-color: rgb(24, 99, 160);
-  color: white;
-}

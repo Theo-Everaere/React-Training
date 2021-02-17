@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import OnChangeText from './OnChangeText';
+import OnChangeText from './Components/OnChangeText';
 // import Client from './Client'
-import Checkbox from './Checkbox';
-import Loader from './Loader';
+import Checkbox from './Components/Checkbox';
+import Loader from './Components/Loader';
 
 
 class App extends React.Component {

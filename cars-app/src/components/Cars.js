@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Car = ({ children, color, year }) => {
-    const colorInfo = color ? (<p>Couleur: {color}</p>) : (<p>Couleur: ?</p>)
+const Car = ({ name, color, year }) => {
+    const colorInfo = color ? (`Couleur: ${color}`) : (`Couleur: ?`)
 
-    if (children) {
+    if (name) {
         return (
-            <div style={{ backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' }}>
-                <p>Marque: {children} </p>
-                <p>Année: {year} </p>
-                {colorInfo}
-            </div>
+            <tr>
+                <td>Marque: {name}</td>
+                <td>Age: {year}</td>
+                <td>{colorInfo}</td>
+            </tr>
         )
 
     } else {
