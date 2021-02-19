@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 
-class Checkbox extends Component{
-    constructor(props){
+class Checkbox extends Component {
+    constructor(props) {
         super(props);
-        this.state = {isChecked : true}
+        this.state = { isChecked: true }
     }
-    handleClick = ()=> {
+    handleClick = () => {
         console.log('Test')
-        this.setState({isChecked : !this.state.isChecked})
+        this.setState({ isChecked: !this.state.isChecked })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <button onClick={this.handleClick}>Cocher / Décocher</button>
-                <input type="checkbox" onChange={this.handleClick} checked={this.state.isChecked}/>
+                <input type="checkbox" onChange={this.handleClick} checked={this.state.isChecked} />
             </div>
         )
     }

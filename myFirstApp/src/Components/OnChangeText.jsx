@@ -13,10 +13,11 @@ class OnChangeText extends Component {
 
     }
     render() {
+        const { str } = this.state
         return (
             <form>
-                <input type="text" name="name" value={this.state.str} onChange={(text) => this.onChangeText(text)} />
-                <input type="text" name="name" value={this.state.str} />
+                <input type="text" value={str} onChange={(text) => this.onChangeText(text)} />
+                <input type="text" value={str} />
             </form>
         )
     }
