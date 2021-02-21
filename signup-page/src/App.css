@@ -1,0 +1,87 @@
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2d3436;
+  font-family: "Times New Roman", Times, serif;
+}
+.profileContainer {
+  background-color: #f7f1e3;
+  width: 400px;
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  border-radius: 5px;
+  border: 1px solid #2d3436;
+}
+.profileTitles {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid gray;
+}
+#title {
+  margin: 0;
+  padding: 15px 0 8px 0;
+  font-size: 2em;
+}
+#subtitle {
+  margin: 0;
+  padding: 0;
+  color: #636e72;
+}
+.profileIdentity {
+  background-color: pink;
+  margin: 10px 10px 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.profileEmail {
+  display: flex;
+  justify-content: center;
+  background-color: green;
+}
+.profileEmail input {
+  width: 100%;
+  margin: 10px;
+}
+.profilePassword {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.password {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+}
+.confirmPassword {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+.profileCondition {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.profileCondition p {
+  margin-left: 8px;
+}
+.profileCondition a {
+  text-decoration: underline;
+  color: black;
+  text-transform: capitalize;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
