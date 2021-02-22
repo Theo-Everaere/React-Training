@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import FormTitles from "../components/FormTitles";
 import eyeOpen from "../icon/icon_eye_open.png";
 import eyeClose from "../icon/icon_eye_close.png";
-import Input from "../components/Input";
 
 class NewSignUp extends Component {
   constructor(props) {
@@ -115,20 +114,21 @@ class NewSignUp extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="profileIdentity">
             <div>
-              <Input
+              <input
                 id="surname"
                 type="text"
                 name="surname"
                 value={this.state.input.surname}
                 onChange={this.handleChange}
                 placeholder="Enter first name"
+                img
               />
-              <div style={styles.errorData}>
+              <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.errors.surname}
               </div>
             </div>
             <div>
-              <Input
+              <input
                 id="name"
                 type="text"
                 name="name"
@@ -136,7 +136,7 @@ class NewSignUp extends Component {
                 value={this.state.input.name}
                 onChange={this.handleChange}
               />
-              <div style={styles.errorData}>
+              <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.errors.name}
               </div>
             </div>
@@ -144,34 +144,42 @@ class NewSignUp extends Component {
 
           <div className="profileEmail">
             <div className="email">
-              <Input
+              <input
                 name="email"
                 placeholder="Email"
                 value={this.state.input.email}
                 onChange={this.handleChange}
               />
-
-              <div style={styles.errorData}>
+              <div style={{ fontSize: 12, color: "red" }}>
                 {this.state.errors.email}
               </div>
             </div>
           </div>
 
           <div className="password">
-
-              <div className="input-container">
-                <input
-                  className="input-container-input"
-                  type={this.state.hide ? "password" : "text"}
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.input.password}
-                  onChange={this.handleChange}
+            <div className="icoPassword">
+              <input
+                type={this.state.hide ? "password" : "text"}
+                name="password"
+                placeholder="Password"
+                value={this.state.input.password}
+                onChange={this.handleChange}
+              />
+              {this.state.hide ? (
+                <img
+                  src={eyeClose}
+                  style={{ width: "21px" }}
+                  onClick={this.showHide}
                 />
-                <i class="material-icons">visibility</i>
-              </div>
-
-            <div style={styles.errorData}>
+              ) : (
+                <img
+                  src={eyeOpen}
+                  style={{ width: "21px" }}
+                  onClick={this.showHide}
+                />
+              )}
+            </div>
+            <div style={{ fontSize: 12, color: "red" }}>
               {this.state.errors.password}
             </div>
           </div>
@@ -185,7 +193,7 @@ class NewSignUp extends Component {
               onChange={this.handleChange}
               placeholder="Enter confirm password"
             />
-            <div style={styles.errorData}>
+            <div style={{ fontSize: 12, color: "red" }}>
               {this.state.errors.confirmPassword}
             </div>
           </div>
@@ -199,13 +207,6 @@ class NewSignUp extends Component {
       </div>
     );
   }
-}
-
-const styles = {
-    errorData: {
-        fontSize: 12, 
-        color: "red" 
-    }
 }
 
 export default NewSignUp;
