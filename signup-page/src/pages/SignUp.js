@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import FormTitles from "../components/FormTitles";
-import eyeOpen from "../icon/icon_eye_open.png";
-import eyeClose from "../icon/icon_eye_close.png";
+import Titles from "../components/Titles";
 import Input from "../components/Input";
 
-class NewSignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
 
@@ -97,7 +95,7 @@ class NewSignUp extends Component {
       typeof input["password"] !== "undefined" &&
       typeof input["confirmPassword"] !== "undefined"
     ) {
-      if (input["password"] != input["confirmPassword"]) {
+      if (input["password"] !== input["confirmPassword"]) {
         isValid = false;
         errors["password"] = "Passwords don't match.";
       }
@@ -108,104 +106,97 @@ class NewSignUp extends Component {
   };
 
   render() {
+
     return (
       <div className="profileContainer">
-        <FormTitles />
+        <div>
+          <Titles />
+        </div>
 
-        <form onSubmit={this.handleSubmit}>
-          <div className="profileIdentity">
-            <div>
+        <form className='form'>
+          <div className='name'>
+            <div className='firstName'>
               <Input
-                id="surname"
                 type="text"
                 name="surname"
                 value={this.state.input.surname}
                 onChange={this.handleChange}
                 placeholder="Enter first name"
               />
-              <div style={styles.errorData}>
+              <div className='errors'>
                 {this.state.errors.surname}
               </div>
             </div>
-            <div>
+            <div className='lastName'>
               <Input
-                id="name"
                 type="text"
                 name="name"
                 placeholder="Last name"
                 value={this.state.input.name}
                 onChange={this.handleChange}
               />
-              <div style={styles.errorData}>
+              <div className='errors'>
                 {this.state.errors.name}
               </div>
             </div>
           </div>
 
-          <div className="profileEmail">
-            <div className="email">
-              <Input
-                name="email"
-                placeholder="Email"
-                value={this.state.input.email}
-                onChange={this.handleChange}
-              />
+          <div className='email'>
+            <Input
+              name="email"
+              placeholder="Email"
+              value={this.state.input.email}
+              onChange={this.handleChange}
+            />
 
-              <div style={styles.errorData}>
-                {this.state.errors.email}
-              </div>
+            <div className='errors'>
+              {this.state.errors.email}
             </div>
           </div>
 
-          <div className="password">
+          <div className='password'>
 
-              <div className="input-container">
-                <input
-                  className="input-container-input"
-                  type={this.state.hide ? "password" : "text"}
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.input.password}
-                  onChange={this.handleChange}
-                />
-                <i class="material-icons">visibility</i>
-              </div>
+            <div className='visibility'>
+              <input
+                type={this.state.hide ? "password" : "text"}
+                name="password"
+                placeholder="Password"
+                value={this.state.input.password}
+                onChange={this.handleChange}
+              />
 
-            <div style={styles.errorData}>
+              {this.state.hide ?
+                (<i className="material-icons" onClick={this.showHide}>visibility_off</i>) :
+                (<i className="material-icons" onClick={this.showHide}>visibility</i>)}
+            </div>
+
+            <div className='errors'>
               {this.state.errors.password}
             </div>
           </div>
 
-          <div className="confirmPassword">
+          <div className='confirmPassword'>
             <input
-              id="confirmPassword"
               type="password"
               name="confirmPassword"
               value={this.state.input.confirmPassword}
               onChange={this.handleChange}
               placeholder="Enter confirm password"
             />
-            <div style={styles.errorData}>
+
+            <div className='errors'>
               {this.state.errors.confirmPassword}
             </div>
           </div>
-
-          <div className="button">
-            <button type="submit" onSubmit={this.handleSubmit}>
-              Submit
-            </button>
-          </div>
         </form>
+
+        <div className='button'>
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
+        </div>
+
       </div>
     );
   }
 }
 
-const styles = {
-    errorData: {
-        fontSize: 12, 
-        color: "red" 
-    }
-}
-
-export default NewSignUp;
+export default SignUp;

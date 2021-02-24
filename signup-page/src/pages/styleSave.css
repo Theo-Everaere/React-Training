@@ -1,0 +1,110 @@
+.App {
+  height: 100vh;
+  background-color: #3498db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2d3436;
+  font-family: "Times New Roman", Times, serif;
+}
+.App input {
+  outline: none;
+  /* margin-left: 10px; */
+}
+.profileContainer {
+  background-color: #ecf0f1;
+  width: 400px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid #2d3436;
+}
+.profileTitles {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid gray;
+}
+#title {
+  margin: 0;
+  padding: 15px 0 8px 0;
+  font-size: 2em;
+}
+#subtitle {
+  margin: 0;
+  padding: 0;
+  color: #636e72;
+}
+.profileIdentity {
+  margin: 10px 10px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.profileEmail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+.email {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.password {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+}
+.password input {
+  width: 100%;
+}
+
+.confirmPassword {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+}
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.input-container-input {
+  width: 100%;
+  border: 0;
+}
+.material-icons {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.profileCondition {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+.profileCondition p {
+  margin-left: 8px;
+}
+.profileCondition a {
+  text-decoration: underline;
+  color: black;
+  text-transform: capitalize;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
