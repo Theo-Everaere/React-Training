@@ -24,7 +24,7 @@
 }
 #mainTitle {
   margin: 0;
-  padding: 0;
+  padding: 30px 0 0 0;
 }
 #subTitle {
   margin: 0;
@@ -35,7 +35,6 @@
 }
 .profileContainer {
   background-color: #95afc0;
-  height: 400px;
   width: 40%;
   min-width: 600px;
   border-radius: 5px;

@@ -2,7 +2,9 @@ import React from 'react';
 
 const Toto = props => {
     
-    const btnReponseToto = props.leState.messageMaman !== null ? (<button onClick={props.propsReponseToto}>Réponse</button>) : (<button disabled>Réponse</button>)
+    const btnReponseToto = props.leState.messageMaman !== null ?
+    (<button onClick={props.propsReponseToto}>Réponse</button>) :
+    (<button disabled>Réponse</button>)
     
     return (
         <div>

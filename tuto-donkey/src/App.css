@@ -1,0 +1,18 @@
+.App {
+  height: 100vh;
+  display: flex;
+}
+.col {
+}
+.vegeta_img {
+  width: 300px;
+  height: 350px;
+}
+.goku_img {
+  width: 300px;
+  height: 350px;
+}
+.frieza_img {
+  width: 300px;
+  height: 350px;
+}

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Titles from "../components/Titles";
 import Input from "../components/Input";
+import { ERRORS_LABELS, LABELS } from './Constantes/ERRORS_labels'
+
 
 class SignUp extends Component {
   constructor(props) {
@@ -9,7 +11,7 @@ class SignUp extends Component {
     this.state = {
       input: {},
       errors: {},
-      hide: true,
+      hide: true
     };
   }
 
@@ -23,7 +25,7 @@ class SignUp extends Component {
     let input = this.state.input;
     input[event.target.name] = event.target.value;
     this.setState({
-      input,
+      input
     });
   };
 
@@ -33,11 +35,11 @@ class SignUp extends Component {
       console.log(this.state);
 
       let input = {};
-      input["surname"] = "";
-      input["name"] = "";
-      input["email"] = "";
-      input["password"] = "";
-      input["confirmPassword"] = "";
+      input[LABELS.SURNAME] = "";
+      input[LABELS.NAME] = "";
+      input[LABELS.EMAIL_VALID] = "";
+      input[LABELS.PASSWORD] = "";
+      input[LABELS.CONFIRM_PASSWORD] = "";
 
       this.setState({ input: input });
       alert("Form submited");
@@ -49,55 +51,54 @@ class SignUp extends Component {
     let errors = {};
     let isValid = true;
 
-    if (!input["surname"]) {
+    if (!input[LABELS.SURNAME]) {
       isValid = false;
-      errors["surname"] = "Please enter your first name.";
+      errors[LABELS.SURNAME] = ERRORS_LABELS.SURNAME;
     }
-    if (!input["name"]) {
+    if (!input[LABELS.NAME]) {
       isValid = false;
-      errors["name"] = "Please enter your last name.";
+      errors[LABELS.NAME] = ERRORS_LABELS.NAME;
     }
-    if (!input["email"]) {
+    if (!input[LABELS.EMAIL_VALID]) {
       isValid = false;
-      errors["email"] = "Please enter valid email address.";
+      errors[LABELS.EMAIL_VALID] = ERRORS_LABELS.EMAIL_VALID;
     }
-    if (typeof input["email"] !== "undefined") {
+    if (typeof input[LABELS.EMAIL_VALID] !== "undefined") {
       let pattern = new RegExp(
         /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i
       );
-      if (!pattern.test(input["email"])) {
+      if (!pattern.test(input[LABELS.EMAIL_VALID])) {
         isValid = false;
-        errors["email"] = "Please enter valid email address.";
+        errors[LABELS.EMAIL_VALID] = ERRORS_LABELS.EMAIL_VALID;
       }
     }
-    if (typeof input["password"] !== "undefined") {
+    if (typeof input[LABELS.PASSWORD] !== "undefined") {
       let pattern = new RegExp(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
       );
-      if (!pattern.test(input["password"])) {
+      if (!pattern.test(input[LABELS.PASSWORD])) {
         isValid = false;
-        errors["password"] =
-          "Password must contain at least eight characters, at least one uppercase letter, one lowercase letter and one number.";
+        errors[LABELS.PASSWORD] = ERRORS_LABELS.PASSWORD_MUST_CONTAIN;
       }
     }
-    console.log(input["password"]);
+    console.log(input[LABELS.PASSWORD]);
 
-    if (!input["password"]) {
+    if (!input[LABELS.PASSWORD]) {
       isValid = false;
-      errors["password"] = "Please enter your password.";
+      errors[LABELS.PASSWORD] = ERRORS_LABELS.PASSWORD;
     }
 
-    if (!input["confirmPassword"]) {
+    if (!input[LABELS.CONFIRM_PASSWORD]) {
       isValid = false;
-      errors["confirmPassword"] = "Please enter your confirm password.";
+      errors[LABELS.CONFIRM_PASSWORD] = ERRORS_LABELS.CONFIRM_PASSWORD;
     }
     if (
-      typeof input["password"] !== "undefined" &&
-      typeof input["confirmPassword"] !== "undefined"
+      typeof input[LABELS.PASSWORD] !== "undefined" &&
+      typeof input[LABELS.CONFIRM_PASSWORD] !== "undefined"
     ) {
-      if (input["password"] !== input["confirmPassword"]) {
+      if (input[LABELS.PASSWORD] !== input[LABELS.CONFIRM_PASSWORD]) {
         isValid = false;
-        errors["password"] = "Passwords don't match.";
+        errors[LABELS.PASSWORD] = ERRORS_LABELS.PASSWORDS_DONT_MATCH;
       }
     }
 
@@ -106,51 +107,54 @@ class SignUp extends Component {
   };
 
   render() {
+    const { hide } = this.state
+    const { input } = this.state
+    const { errors } = this.state
 
     return (
       <div className="profileContainer">
-        <div>
-          <Titles />
-        </div>
-
+        <Titles
+          mainTitle="Sign up"
+          subTitle="Please fill in this form to create an account !"
+        />
         <form className='form'>
           <div className='name'>
             <div className='firstName'>
               <Input
                 type="text"
-                name="surname"
-                value={this.state.input.surname}
+                name={LABELS.SURNAME}
+                value={input.surname}
                 onChange={this.handleChange}
-                placeholder="Enter first name"
+                placeholder="First name"
               />
               <div className='errors'>
-                {this.state.errors.surname}
+                {errors.surname}
               </div>
             </div>
             <div className='lastName'>
               <Input
                 type="text"
-                name="name"
+                name={LABELS.NAME}
                 placeholder="Last name"
-                value={this.state.input.name}
+                value={input.name}
                 onChange={this.handleChange}
               />
               <div className='errors'>
-                {this.state.errors.name}
+                {errors.name}
               </div>
             </div>
           </div>
 
           <div className='email'>
             <Input
-              name="email"
+              name={LABELS.EMAIL_VALID}
               placeholder="Email"
-              value={this.state.input.email}
+              value={input.email}
               onChange={this.handleChange}
             />
 
             <div className='errors'>
-              {this.state.errors.email}
+              {errors.email}
             </div>
           </div>
 
@@ -158,34 +162,34 @@ class SignUp extends Component {
 
             <div className='visibility'>
               <input
-                type={this.state.hide ? "password" : "text"}
-                name="password"
+                type={hide ? "password" : "text"}
+                name={LABELS.PASSWORD}
                 placeholder="Password"
-                value={this.state.input.password}
+                value={input.password}
                 onChange={this.handleChange}
               />
 
-              {this.state.hide ?
+              {hide ?
                 (<i className="material-icons" onClick={this.showHide}>visibility_off</i>) :
                 (<i className="material-icons" onClick={this.showHide}>visibility</i>)}
             </div>
 
             <div className='errors'>
-              {this.state.errors.password}
+              {errors.password}
             </div>
           </div>
 
           <div className='confirmPassword'>
             <input
-              type="password"
-              name="confirmPassword"
-              value={this.state.input.confirmPassword}
+              type={LABELS.PASSWORD}
+              name={LABELS.CONFIRM_PASSWORD}
+              value={input.confirmPassword}
               onChange={this.handleChange}
-              placeholder="Enter confirm password"
+              placeholder="Confirm password"
             />
 
             <div className='errors'>
-              {this.state.errors.confirmPassword}
+              {errors.confirmPassword}
             </div>
           </div>
         </form>
