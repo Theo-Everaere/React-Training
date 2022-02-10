@@ -1,2 +1,1 @@
-# React
-My first apps using React
+Mes premières applications React. 
